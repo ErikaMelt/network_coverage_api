@@ -1,13 +1,22 @@
 [tool.poetry]
-name = "network-coverage-api"
+name = "network_coverage_api"
 version = "0.1.0"
 description = ""
 authors = ["eomac <104458004+ErikaMelt@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.13"
+fastapi = "^0.103.1"
+uvicorn = "^0.23.2"
+pandas = "^2.1.1"
+pyproj = "^3.6.1"
+requests = "^2.31.0"
+python-dotenv = "^1.0.0"
 
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.2"
 
 [build-system]
 requires = ["poetry-core"]
