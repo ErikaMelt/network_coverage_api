@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "network-coverage-api"
+version = "0.1.0"
+description = ""
+authors = ["eomac <104458004+ErikaMelt@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
