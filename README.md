@@ -42,7 +42,7 @@ poetry run uvicorn app.main:app --reload
 
 <br>
 
-![Image](https://raw.githubusercontent.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429)
+![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/dff06dca-ffc6-42b4-a1cc-01c9e87120a1)
 
 <br>
 
