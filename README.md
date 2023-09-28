@@ -35,7 +35,8 @@ Install the project dependencies using Poetry:
 Run the FastAPI application:
 poetry run uvicorn app.main:app --reload
 ```Access the API at http://localhost:8000/docs```
-![Alt text](image.png)
+![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429)
+
 
 
 ### Endpoints:
