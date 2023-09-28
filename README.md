@@ -19,6 +19,7 @@ To get started with this API, follow these steps:
 - Python 3.7+
 - Poetry
 - FastApi
+- Pytest 
 
 ### Installation
 
@@ -40,24 +41,19 @@ poetry run uvicorn app.main:app --reload
 ### Endpoints
 /network-coverage/: Retrieve network coverage data for a given address
 
-<br>
-
-![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/dff06dca-ffc6-42b4-a1cc-01c9e87120a1)
-
-<br>
+<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/dff06dca-ffc6-42b4-a1cc-01c9e87120a1" alt="Network Coverage API" width="400" align="left">
 
 The image above represents the network coverage API.
 
 ### CSV Data
 - The network coverage data is provided in a CSV file. 
 - The CSV file contains the following features and conversion from Lambert93 to GPS coordinates. 
-![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/f0734032-15cc-4c1e-88d2-b0692a4fe407)
+
+<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/f0734032-15cc-4c1e-88d2-b0692a4fe407" alt="CSV Data" width="400" align="left">
+
 
 - **Data Example**
-<br>
-![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/682409b8-e96d-4f36-b82f-2f2dadd9ebee)
-<br>
-
+<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/682409b8-e96d-4f36-b82f-2f2dadd9ebee" alt="CSV Data Example" width="400" align="left">
 
 ### Testing
 To run the tests for this API, follow these steps:
