@@ -67,7 +67,9 @@ The image above represents the network coverage API.
 </div>
 
 <br>
+
 ### Testing
+
 To run the tests for this API, follow these steps:
 
 1. Make sure you have installed the project dependencies using Poetry (as mentioned in the Installation section).
