@@ -39,8 +39,9 @@ poetry run uvicorn app.main:app --reload
 
 ### Endpoints:
 
-/network-coverage/: Retrieve network coverage data for a given address.
-<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429" alt="Image" width="300" height="200">
+/network-coverage/: Retrieve network coverage data for a given address: 
+
+<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429" alt="Image" width="500" height="450">
 
 
 ### CSV Data
