@@ -52,7 +52,9 @@ The image above represents the network coverage API.
 - The network coverage data is provided in a CSV file. 
 - The CSV file contains the following features and conversion from Lambert93 to GPS coordinates. 
 
-<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/f0734032-15cc-4c1e-88d2-b0692a4fe407" alt="CSV Data" width="400" align="left">
+<div style="float: left; margin-right: 20px;">
+  <img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/f0734032-15cc-4c1e-88d2-b0692a4fe407" alt="CSV Data" width="400">
+</div>
 
 - **Data Example**
 
