@@ -58,7 +58,9 @@ The image above represents the network coverage API.
 
 - **Data Example**
 
-<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/682409b8-e96d-4f36-b82f-2f2dadd9ebee" alt="CSV Data Example" width="400" align="left">
+<div style="float: left; margin-right: 20px;">
+  <img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/682409b8-e96d-4f36-b82f-2f2dadd9ebee" alt="CSV Data Example" width="400">
+</div>
 
 ### Testing
 To run the tests for this API, follow these steps:
