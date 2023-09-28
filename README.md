@@ -53,8 +53,10 @@ The image above represents the network coverage API.
 - The CSV file contains the following features and conversion from Lambert93 to GPS coordinates. 
 ![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/f0734032-15cc-4c1e-88d2-b0692a4fe407)
 
-- **Data Example** 
+- **Data Example**
+<br>
 ![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/682409b8-e96d-4f36-b82f-2f2dadd9ebee)
+<br>
 
 
 ### Testing
@@ -67,5 +69,7 @@ To run the tests for this API, follow these steps:
    poetry run python tests
 
 The 9 tests should pass as shown in the image: 
+<br>
+
 ![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/d8b2ef32-0b5d-47c2-9c08-d55f85ef5a28)
 
