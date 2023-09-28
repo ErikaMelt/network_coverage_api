@@ -1,0 +1,57 @@
+{
+   "42 rue papernest 75011 Paris": {
+       "Orange": {
+           "coverage": {
+               "2G": false,
+               "3G": false,
+               "4G": false
+           }
+       },
+       "SFR": {
+           "coverage": {
+               "2G": true,
+               "3G": false,
+               "4G": false
+           }
+       }
+   },
+   "138 Avenue de Paris 94300 Val-de-Marne": {
+       "Bouygue": {
+           "coverage": {
+               "2G": true,
+               "3G": true,
+               "4G": true
+           }
+       },
+       "Free": {
+           "coverage": {
+               "2G": false,
+               "3G": true,
+               "4G": true
+           }
+       },
+       "SFR": {
+           "coverage": {
+               "2G": true,
+               "3G": false,
+               "4G": false
+           }
+       }
+   },
+   "Centre de Recherche des Cordeliers, 15 Rue de l'École de Médecine 75006 Paris": {
+       "Bouygue": {
+           "coverage": {
+               "2G": true,
+               "3G": true,
+               "4G": true
+           }
+       },
+       "Orange": {
+           "coverage": {
+               "2G": false,
+               "3G": false,
+               "4G": false
+           }
+       }
+   }
+}

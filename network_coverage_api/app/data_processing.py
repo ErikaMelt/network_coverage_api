@@ -1,4 +1,4 @@
-from typing import Dict, Tuple
+from typing import Dict
 
 import numpy as np
 import pandas as pd
@@ -6,11 +6,12 @@ import requests
 from fastapi import HTTPException
 from scipy.spatial.distance import cdist
 
+from network_coverage_api.models.api_addrese_response import ApiAdresseResponse
 from network_coverage_api.models.network_coverage import \
     NetworkCoverageResponseData
 
 
-def fetch_coordinates(address_api_url: str) -> Tuple[float, float]:
+def fetch_coordinates(address_api_url: str) -> ApiAdresseResponse:
     """
     Fetches coordinates (longitude and latitude) from an address API.
 
@@ -18,7 +19,7 @@ def fetch_coordinates(address_api_url: str) -> Tuple[float, float]:
         address_api_url (str): The URL of the address API.
 
     Returns:
-        Tuple[float, float]: A tuple containing the longitude and latitude.
+        ApiAdresseResponse: An object with the longitude and latitude and score.
 
     Raises:
         HTTPException: If the address API request fails or the address is not found.
@@ -34,16 +35,28 @@ def fetch_coordinates(address_api_url: str) -> Tuple[float, float]:
         raise HTTPException(status_code=404, detail="Address not found")
 
     geometry = features[0]["geometry"]["coordinates"]
+    properties = features[0].get("properties", {})
+    score = properties.get("score", 0.0)
+
     longitude = geometry[0]
     latitude = geometry[1]
 
-    return longitude, latitude
+    print(longitude, latitude, score)
+
+    if score is not None and score < 0.4:
+        raise HTTPException(status_code=404, detail="Incorrect address found")
+
+    if not isinstance(longitude, (float, int)) or not isinstance(
+        latitude, (float, int)
+    ):
+        raise HTTPException(status_code=404, detail="Incorrect address found")
+
+    return ApiAdresseResponse(longitude=longitude, latitude=latitude, score=score)
 
 
-def find_coverage_data(
+def find_network_coverage_data(
     network_coverage_df: pd.DataFrame,
-    longitude: float,
-    latitude: float,
+    coordinate: ApiAdresseResponse,
     tolerance: float,
 ) -> pd.DataFrame:
     """
@@ -51,8 +64,7 @@ def find_coverage_data(
 
     Args:
         network_coverage_df (pd.DataFrame): The DataFrame containing network coverage data.
-        longitude (float): The longitude of the target location.
-        latitude (float): The latitude of the target location.
+        ApiAdresseResponse: the longitude and The latitude of the target location.
         tolerance (float): The tolerance in meters for matching.
 
     Returns:
@@ -60,16 +72,32 @@ def find_coverage_data(
 
     """
     match_within_tolerance = network_coverage_df[
-        (np.isclose(network_coverage_df.longitude, longitude, atol=tolerance))
-        & (np.isclose(network_coverage_df.latitude, latitude, atol=tolerance))
+        (
+            np.isclose(
+                network_coverage_df.longitude, coordinate.longitude, atol=tolerance
+            )
+        )
+        & (
+            np.isclose(
+                network_coverage_df.latitude, coordinate.latitude, atol=tolerance
+            )
+        )
     ]
-    closest_points = select_closest_points(longitude, latitude, match_within_tolerance)
+    if len(match_within_tolerance) == 0:
+        raise HTTPException(status_code=404, detail="Network coverage not found")
+
+    closest_points = select_closest_points(coordinate, match_within_tolerance)
+
+    if len(closest_points) == 0:
+        raise HTTPException(
+            status_code=404, detail="Not closest point network coverage found"
+        )
+
     return closest_points
 
 
 def select_closest_points(
-    longitude: float,
-    latitude: float,
+    coordinate: ApiAdresseResponse,
     matches_within_tolerance: pd.DataFrame,
     TOP_MATCHES=5,
 ) -> pd.DataFrame:
@@ -77,15 +105,14 @@ def select_closest_points(
     Selects the N closest points to a target longitude and latitude.
 
     Args:
-        longitude (float): The target longitude.
-        latitude (float): The target latitude.
+        ApiAdresseResponse with the latitude, longitude of the target
         matches_within_tolerance (pd.DataFrame): DataFrame of matching points within tolerance.
         N (int): The number of closest points to select.
 
     Returns:
         pd.DataFrame: A DataFrame containing the closest N points.
     """
-    target_coords = np.array([[longitude, latitude]])
+    target_coords = np.array([[coordinate.longitude, coordinate.latitude]])
 
     matched_coords = matches_within_tolerance[["longitude", "latitude"]].values
     distances = cdist(target_coords, matched_coords, metric="cityblock")
@@ -95,6 +122,7 @@ def select_closest_points(
 
     closest_matches = result_df.sort_values(by="distance")
     closest_points = closest_matches.head(TOP_MATCHES)
+
     return closest_points
 
 

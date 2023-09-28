@@ -1,0 +1,37 @@
+{
+   "type":"FeatureCollection",
+   "version":"draft",
+   "features":[
+      {
+         "type":"Feature",
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               2.380383,
+               48.860248
+            ]
+         },
+         "properties":{
+            "label":"42 Rue Pétion 75011 Paris",
+            "score":0.55276,
+            "housenumber":"42",
+            "id":"75111_7312_00042",
+            "name":"42 Rue Pétion",
+            "postcode":"75011",
+            "citycode":"75111",
+            "x":654540.03,
+            "y":6862424.29,
+            "city":"Paris",
+            "district":"Paris 11e Arrondissement",
+            "context":"75, Paris, Île-de-France",
+            "type":"housenumber",
+            "importance":0.73661,
+            "street":"Rue Pétion"
+         }
+      }
+   ],
+   "attribution":"BAN",
+   "licence":"ETALAB-2.0",
+   "query":"42 rue papernest 75011 Paris",
+   "limit":1
+}
