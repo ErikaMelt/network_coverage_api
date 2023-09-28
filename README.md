@@ -51,6 +51,9 @@ The image above represents the network coverage API.
 ### CSV Data
 The network coverage data is provided in a CSV file. 
 The CSV file contains the following features and conversion from Lambert93 to GPS coordinates is done. 
+Columns in the CSV file: 
+![Alt text](image-1.png)
 
+![Alt text](image-2.png)
 
 
