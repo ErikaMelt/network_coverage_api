@@ -19,7 +19,8 @@ To get started with this API, follow these steps:
 - Python 3.7+
 - Poetry
 - FastApi
-- Pytest 
+- Pytest
+- .env variable
 
 ### Installation
 
@@ -29,6 +30,9 @@ To get started with this API, follow these steps:
 
 Navigate to the project directory:
 ```cd network-coverage-api```
+
+Create an .env file that contains 
+```SEARCH_ADDRESS_API_URL = "https://api-adresse.data.gouv.fr/search/?q={q}&limit=1"```
 
 Install the project dependencies using Poetry:
 ```poetry install```
