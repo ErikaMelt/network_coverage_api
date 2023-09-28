@@ -49,14 +49,23 @@ poetry run uvicorn app.main:app --reload
 The image above represents the network coverage API.
 
 ### CSV Data
-The network coverage data is provided in a CSV file. 
-The CSV file contains the following features and conversion from Lambert93 to GPS coordinates is done. 
-Columns in the CSV file: 
-
-
+- The network coverage data is provided in a CSV file. 
+- The CSV file contains the following features and conversion from Lambert93 to GPS coordinates. 
 ![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/f0734032-15cc-4c1e-88d2-b0692a4fe407)
+
+- **Data Example** 
 ![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/682409b8-e96d-4f36-b82f-2f2dadd9ebee)
 
 
+### Testing
+To run the tests for this API, follow these steps:
 
+1. Make sure you have installed the project dependencies using Poetry (as mentioned in the Installation section).
+2. Open a terminal and navigate to the project directory.
+3. Run the following command to execute the tests:
+   ```bash
+   poetry run python tests
+
+The 9 tests should pass as shown in the image: 
+![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/d8b2ef32-0b5d-47c2-9c08-d55f85ef5a28)
 
