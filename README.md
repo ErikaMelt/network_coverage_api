@@ -32,17 +32,21 @@ Navigate to the project directory:
 Install the project dependencies using Poetry:
 ```poetry install```
 
-### Usage:
+### Usage
 Run the FastAPI application:
 poetry run uvicorn app.main:app --reload
 ```Access the API at http://localhost:8000/docs```
 
-### Endpoints:
+### Endpoints
+/network-coverage/: Retrieve network coverage data for a given address
 
-/network-coverage/: Retrieve network coverage data for a given address: 
+<br>
 
-<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429" alt="Image" width="500" height="450">
+![Image](https://raw.githubusercontent.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429)
 
+<br>
+
+The image above represents the network coverage API.
 
 ### CSV Data
 The network coverage data is provided in a CSV file. 
