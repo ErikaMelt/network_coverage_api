@@ -46,13 +46,14 @@ poetry run uvicorn app.main:app --reload
 The image above represents the network coverage API.
 
 ### CSV Data
+
 - The network coverage data is provided in a CSV file. 
 - The CSV file contains the following features and conversion from Lambert93 to GPS coordinates. 
 
 <img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/f0734032-15cc-4c1e-88d2-b0692a4fe407" alt="CSV Data" width="400" align="left">
 
-
 - **Data Example**
+
 <img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/682409b8-e96d-4f36-b82f-2f2dadd9ebee" alt="CSV Data Example" width="400" align="left">
 
 ### Testing
