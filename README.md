@@ -4,10 +4,11 @@ The Network Coverage API is built using FastAPI and Poetry for dependency manage
 
 ## Features
 
-- Fetch coordinates (longitude and latitude) from an address API.
+- Fetch coordinates (longitude and latitude) from [External API](https://adresse.data.gouv.fr/api-doc/adresse) ```curl "https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port"```
 - Match coordinates with network coverage data within a specified tolerance.
 - Select the N closest points to a target longitude and latitude.
 - Generate a response containing network coverage data for matched points.
+- Use a CSV file with the network coverage. 
 
 ## Getting Started
 
@@ -23,7 +24,7 @@ To get started with this API, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/ErikaMelt/network_coverage_api.git
 
 Navigate to the project directory:
 ```cd network-coverage-api```
@@ -35,15 +36,16 @@ Install the project dependencies using Poetry:
 Run the FastAPI application:
 poetry run uvicorn app.main:app --reload
 ```Access the API at http://localhost:8000/docs```
-![image](https://github.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429)
-
-
 
 ### Endpoints:
 
 /network-coverage/: Retrieve network coverage data for a given address.
+<img src="https://github.com/ErikaMelt/network_coverage_api/assets/104458004/ac625135-715c-4e4c-add4-8e7210247429" alt="Image" width="300" height="200">
 
 
 ### CSV Data
-The network coverage data is provided in a CSV file. Make sure to update this file with the latest network coverage information.
+The network coverage data is provided in a CSV file. 
+The CSV file contains the following features and conversion from Lambert93 to GPS coordinates is done. 
+
+
 
