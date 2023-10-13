@@ -152,5 +152,5 @@ dmypy.json
 cython_debug/
 
 .DS_Store
-data/
+data/2018_01_Sites_mobiles_2G_3G_4G_France_metropolitaine_L93.csv
 .vscode/
