@@ -1,18 +1,16 @@
 import json
 from http import HTTPStatus
+from fastapi.testclient import TestClient
 
 import pandas as pd
 import pytest
 from fastapi import HTTPException
-from fastapi.testclient import TestClient
+from tests.conftest import testclient
 
 from network_coverage_api.app.data_processing import (
     fetch_coordinates,
     find_network_coverage_data)
-from network_coverage_api.app.main import app
 from network_coverage_api.models.api_addrese_response import ApiAdresseResponse
-
-client = TestClient(app)
 
 
 @pytest.fixture()
@@ -32,17 +30,16 @@ paris_addresses = [
 
 
 @pytest.mark.parametrize("address", paris_addresses)
-def test_get_network_coverage_200(network_coverage_response, address):
-    with client as test_client:
-        response = test_client.get(f"/network-coverage/?address={address}")
+def test_get_network_coverage_200(network_coverage_response, address, testclient: TestClient):
+    response = testclient.get(f"/network-coverage/?address={address}")
     assert response.status_code == 200
     assert response.json() == network_coverage_response[address]
 
 
-def test_get_network_coverage_404():
+def test_get_network_coverage_404(testclient: TestClient):
     address = "xdljfdl"
-    with client as test_client:
-        response = test_client.get(f"/network-coverage/?address={address}")
+    #with client as test_client:
+    response = testclient.get(f"/network-coverage/?address={address}")
     assert response.status_code == 404
     assert response.json()["detail"] == "Address not found"
 
